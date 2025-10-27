@@ -33,14 +33,14 @@ public class Cars {
         return maxPosition;
     }
 
-//    public List<String> findWinners() {
-//        int maxPosition = findMaxPosition();
-//
-//        return carList.stream()
-//                .filter(car -> car.getPosition() == maxPosition)
-//                .map(Car::getName)
-//                .collect(Collectors.toList());
-//    }
+    public List<String> findWinners() {
+        int maxPosition = findMaxPosition();
+
+        return carList.stream()
+                .filter(car -> car.getPosition() == maxPosition)
+                .map(Car::getName)
+                .collect(Collectors.toList());
+    }
 
     public List<Car> getCarList() {
         return carList;

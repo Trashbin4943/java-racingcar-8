@@ -2,7 +2,7 @@ package racingcar.view;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Scanner;
+import camp.nextstep.edu.missionutils.Console;
 import java.util.stream.Collectors;
 
 public class InputView {
@@ -21,16 +21,10 @@ public class InputView {
     private static final String ERROR_NO_CARS = ERROR_PREFIX + "1대 이상의 자동차 이름을 입력해야 합니다.";
 
 
-    private final Scanner scanner;
-
-    public InputView() {
-        this.scanner = new Scanner(System.in);
-    }
-
     public List<String> readCarNames() {
         while (true) {
             System.out.println(CAR_NAME_PROMPT);
-            String input = scanner.nextLine();
+            String input = Console.readLine();
 
             try {
                 List<String> names = parseAndTrim(input);
@@ -45,7 +39,7 @@ public class InputView {
     public int readAttemptCount() {
         while (true) {
             System.out.println(ATTEMPT_COUNT_PROMPT);
-            String input = scanner.nextLine();
+            String input = Console.readLine();
 
             try {
                 int count = parsePositiveInt(input);

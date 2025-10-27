@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class OutputView {
-    private static final String POSITION_MARKER = "_";
+    private static final String POSITION_MARKER = "-";
     private static final String WINNER_DELIMITER = ", ";
 
     private static final String EXECUTION_RESULT_HEADER = "\n실행 결과";

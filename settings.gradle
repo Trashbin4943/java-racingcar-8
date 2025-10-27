@@ -1,4 +1,16 @@
 plugins {
     id 'org.gradle.toolchains.foojay-resolver-convention' version '0.8.0'
 }
+
+// System.setProperty를 'plugins' 블록 바로 뒤로 이동
+System.setProperty('file.encoding', 'UTF-8')
+
 rootProject.name = 'java-racingcar'
+
+gradle.allprojects {
+    plugins.withId('java') { // 'java' 플러그인이 적용되는 모든 모듈에 대해
+        tasks.withType(JavaCompile) {
+            options.encoding = 'UTF-8'
+        }
+    }
+}
