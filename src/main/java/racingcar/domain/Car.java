@@ -15,7 +15,7 @@ public class Car {
 
     public void move(RandomNumberGenerator RNG) {
         int RN = RNG.generate();
-        if (RN > OFFSET) {
+        if (RN >= OFFSET) {
             this.position++;
         }
     }
