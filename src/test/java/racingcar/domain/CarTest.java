@@ -32,7 +32,7 @@ class CarTest {
     }
 
     @Test
-    @DisplayName("move: 랜덤 숫자가 5 이상이면 (OFFSET 4 초과) 위치가 1 증가한다")
+    @DisplayName("move: 랜덤 숫자가 4 이상이면 (OFFSET 4 이상) 위치가 1 증가한다")
     void move_forward() {
         // given
         // 5를 반환하는 가짜(Stub) RandomNumberGenerator 생성
@@ -40,7 +40,7 @@ class CarTest {
         RandomNumberGenerator stubMovingRng = new RandomNumberGenerator() {
             @Override
             public int generate() {
-                return 5; // 5 > 4 (OFFSET)
+                return 4; // 5 > 4 (OFFSET)
             }
         };
 
@@ -58,33 +58,14 @@ class CarTest {
     }
 
     @Test
-    @DisplayName("move: 랜덤 숫자가 4 이하면 (OFFSET 4 이하) 위치가 변하지 않는다 (경계값 4)")
+    @DisplayName("move: 랜덤 숫자가 4 미만이면 (OFFSET 4 미만) 위치가 변하지 않는다 (경계값 4)")
     void move_stop_boundary() {
         // given
         // 4를 반환하는 가짜(Stub) RandomNumberGenerator 생성
         RandomNumberGenerator stubStoppingRng = new RandomNumberGenerator() {
             @Override
             public int generate() {
-                return 4; // 4 == 4 (OFFSET)
-            }
-        };
-
-        // when
-        car.move(stubStoppingRng); // 가짜 RNG 주입
-
-        // then
-        assertThat(car.getPosition()).isEqualTo(0); // 멈춤
-    }
-
-    @Test
-    @DisplayName("move: 랜덤 숫자가 4 이하면 위치가 변하지 않는다 (경계값 3)")
-    void move_stop_belowBoundary() {
-        // given
-        // 3을 반환하는 가짜(Stub) RandomNumberGenerator 생성
-        RandomNumberGenerator stubStoppingRng = new RandomNumberGenerator() {
-            @Override
-            public int generate() {
-                return 3; // 3 < 4 (OFFSET)
+                return 3;
             }
         };
 

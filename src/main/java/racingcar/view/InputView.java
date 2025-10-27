@@ -22,32 +22,20 @@ public class InputView {
 
 
     public List<String> readCarNames() {
-        while (true) {
             System.out.println(CAR_NAME_PROMPT);
             String input = Console.readLine();
 
-            try {
-                List<String> names = parseAndTrim(input);
-                validateCarNames(names);
-                return names;
-            } catch (IllegalArgumentException e) {
-                System.err.println(e.getMessage());
-            }
-        }
+            List<String> names = parseAndTrim(input);
+            validateCarNames(names);
+            return names;
     }
 
     public int readAttemptCount() {
-        while (true) {
             System.out.println(ATTEMPT_COUNT_PROMPT);
             String input = Console.readLine();
 
-            try {
-                int count = parsePositiveInt(input);
-                return count;
-            } catch (IllegalArgumentException e) {
-                System.err.println(e.getMessage());
-            }
-        }
+            int count = parsePositiveInt(input);
+            return count;
     }
 
     private List<String> parseAndTrim(String input) {
