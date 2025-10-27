@@ -8,11 +8,12 @@ public class OutputView {
     private static final String POSITION_MARKER = "-";
     private static final String WINNER_DELIMITER = ", ";
 
-    private static final String EXECUTION_RESULT_HEADER = "\n실행 결과";
+    private static final String EXECUTION_RESULT_HEADER = "실행 결과";
     private static final String CAR_STATUS_FORMAT = "%s : %s";
     private static final String FINAL_WINNER_HEADER = "최종 우승자 : ";
 
     public void printExecutionResultHeader() {
+        System.out.println();
         System.out.println(EXECUTION_RESULT_HEADER);
     }
 
